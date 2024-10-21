@@ -61,24 +61,6 @@ public class Vuelo {
 		return this.pilotos;
 	}
 
-	public boolean pasajeroUnico(int id) {
-		for (Pasajero pasajero : pasajeros) {
-			if (pasajero.pasaporte.getId() == id) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	public boolean pilotoUnico(int id) {
-		for (Piloto piloto : pilotos) {
-			if (piloto.pasaporte.getId() == id) {
-				return false;
-			}
-		}
-		return true;
-	}
-
 	public void setPasajeros(ArrayList<Pasajero> pasajeros) {
 		this.pasajeros = pasajeros;
 	}
