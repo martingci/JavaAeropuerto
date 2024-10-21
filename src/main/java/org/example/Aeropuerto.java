@@ -16,8 +16,13 @@ public class Aeropuerto {
 	}
 
 	public boolean crearVuelo(Vuelo vueloAAgregar, Avion avionAAgregar) {
-		for (Avion avion : aviones) {
+		for (Avion avion : getAviones()) {
 			if (avion.equals(avionAAgregar)) {
+				for (Vuelo vuelo : avion.vuelos) {
+					if (vuelo.equals(vueloAAgregar)) {
+						return false;
+					}
+				}
 				avion.vuelos.add(vueloAAgregar);
 				return true;
 			}
@@ -27,8 +32,10 @@ public class Aeropuerto {
 
 	public boolean registrarAvion(Avion avionNuevo) {
 		for (Avion avionRegistrado : aviones) {
-			if (avionRegistrado.equals(avionNuevo)) {
-				return false;
+			if (avionRegistrado != null) {
+				if (avionRegistrado.equals(avionNuevo)) {
+					return false;
+				}
 			}
 		}
 		aviones.add(avionNuevo);
@@ -57,7 +64,7 @@ public class Aeropuerto {
 		}
 	}
 
-	public Aeropuerto(String ubicacion, ArrayList<Avion> aviones) {
+	public Aeropuerto(String ubicacion) {
 		this.ubicacion = ubicacion;
 		this.aviones = aviones;
 	}
@@ -66,24 +73,27 @@ public class Aeropuerto {
 		return aviones;
 	}
 
-	public boolean agregarPasajero (Pasajero pasajero, Date fecha, String origen, String destino) {
+	public boolean agregarPasajero(Pasajero pasajero, Date fecha, String origen, String destino) {
 		if (pasajero.pasaporte.validarPasaporte()) {
 			for (Avion avion : aviones) {
 				for (Vuelo vuelo : avion.vuelos) {
 					if (vuelo.getSalida().equals(fecha) && vuelo.getOrigen().equals(origen) && vuelo.getDestino().equals(destino)) {
+						if (vuelo.getPasajeros() == null) {
+							vuelo.setPasajeros(new ArrayList<>());
+						}
 						for (Pasajero pasajerosAgregados : vuelo.getPasajeros()) {
 							if (pasajerosAgregados.getNombre().equals(pasajero.getNombre())) {
 								return false;
 							}
 						}
-						vuelo.pasajeros.add(pasajero);
+						vuelo.getPasajeros().add(pasajero);
 						return true;
 					}
 				}
 			}
 		}
-        return false;
-    }
+		return false;
+	}
 
 	public boolean agregarPiloto (Piloto piloto, Date fecha, String origen, String destino) {
 		if (piloto.pasaporte.validarPasaporte()) {

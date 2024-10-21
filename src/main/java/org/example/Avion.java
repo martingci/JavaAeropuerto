@@ -6,7 +6,7 @@ public class Avion {
 	public Aeropuerto aeropuerto;
 	public ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
 
-	public Avion(String nombre, ArrayList<Vuelo> vuelos) {
+	public Avion(String nombre) {
 		this.nombre = nombre;
 		this.vuelos = vuelos;
 	}

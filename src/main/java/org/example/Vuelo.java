@@ -12,7 +12,7 @@ public class Vuelo {
 	public ArrayList<Piloto> pilotos;
 	public ArrayList<Pasajero> pasajeros;
 
-	public Vuelo(String origen, String destino, Date salida, Date llegada, ArrayList<Pasajero> pasajeros, ArrayList<Piloto> pilotos) {
+	public Vuelo(String origen, String destino, Date salida, Date llegada) {
 		this.origen = origen;
 		this.destino = destino;
 		this.salida = salida;
@@ -77,5 +77,9 @@ public class Vuelo {
 			}
 		}
 		return true;
+	}
+
+	public void setPasajeros(ArrayList<Pasajero> pasajeros) {
+		this.pasajeros = pasajeros;
 	}
 }
