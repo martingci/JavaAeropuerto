@@ -32,3 +32,7 @@ Cada pasajero debe portar un pasaporte que debe contener:
 3. **Validar pasaportes**: Verificar que cada pasaporte no esté expirado y tenga hojas disponibles.
 4. **Búsqueda de vuelos por fecha**: Buscar todos los usuarios que tienen un vuelo en una fecha determinada.
 5. **Seguimiento de vuelo**: Buscar a todos los usuarios de un mismo vuelo para realizar seguimiento en caso de ser necesario.
+
+## Diagrama de Clases
+
+![Diagrama de Clases](/diagrama.png)
