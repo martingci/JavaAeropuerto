@@ -6,6 +6,11 @@ public class Avion {
 	public Aeropuerto aeropuerto;
 	public ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
 
+	public Avion(String nombre, ArrayList<Vuelo> vuelos) {
+		this.nombre = nombre;
+		this.vuelos = vuelos;
+	}
+
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -14,11 +19,7 @@ public class Avion {
 		this.nombre = nombre;
 	}
 
-	public Avion(String nombre, ArrayList<Vuelo> vuelos) {
-		throw new UnsupportedOperationException();
-	}
-
 	public ArrayList<Vuelo> getVuelos() {
-		throw new UnsupportedOperationException();
+		return this.vuelos;
 	}
 }

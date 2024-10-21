@@ -9,8 +9,17 @@ public class Vuelo {
 	private Date salida;
 	private Date llegada;
 	public Avion avion;
-	public ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
-	public ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
+	public ArrayList<Piloto> pilotos;
+	public ArrayList<Pasajero> pasajeros;
+
+	public Vuelo(String origen, String destino, Date salida, Date llegada, ArrayList<Pasajero> pasajeros, ArrayList<Piloto> pilotos) {
+		this.origen = origen;
+		this.destino = destino;
+		this.salida = salida;
+		this.llegada = llegada;
+		this.pasajeros = pasajeros;
+		this.pilotos = pilotos;
+	}
 
 	public String getOrigen() {
 		return this.origen;
@@ -37,30 +46,36 @@ public class Vuelo {
 	}
 
 	public Date getllegada() {
-		throw new UnsupportedOperationException();
+		return this.llegada;
 	}
 
 	public void setllegada(Date llegada) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Vuelo(String origen, String destino, Date salida, Date llegada, ArrayList<Pasajero> pasajeros, ArrayList<Piloto> pilotos) {
-		throw new UnsupportedOperationException();
+		this.llegada = llegada;
 	}
 
 	public ArrayList<Pasajero> getPasajeros() {
-		throw new UnsupportedOperationException();
+		return this.pasajeros;
 	}
 
 	public ArrayList<Piloto> getPilotos() {
-		throw new UnsupportedOperationException();
+		return this.pilotos;
 	}
 
 	public boolean pasajeroUnico(int id) {
-		throw new UnsupportedOperationException();
+		for (Pasajero pasajero : pasajeros) {
+			if (pasajero.pasaporte.getId() == id) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public boolean pilotoUnico(int id) {
-		throw new UnsupportedOperationException();
+		for (Piloto piloto : pilotos) {
+			if (piloto.pasaporte.getId() == id) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

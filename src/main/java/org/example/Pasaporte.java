@@ -9,6 +9,13 @@ public class Pasaporte {
 	public Pasajero pasajero;
 	public Piloto piloto;
 
+	public Pasaporte(int id, String nacionalidad, int hojasDisponibles, Date vencimiento) {
+		this.id = id;
+		this.nacionalidad = nacionalidad;
+		this.hojasDisponibles = hojasDisponibles;
+		this.vencimiento = vencimiento;
+	}
+
 	public int getId() {
 		return this.id;
 	}
@@ -26,15 +33,11 @@ public class Pasaporte {
 	}
 
 	public int gethojasDisponibles() {
-		throw new UnsupportedOperationException();
+		return this.hojasDisponibles;
 	}
 
 	public void sethojasDisponibles(int hojasDisponibles) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Pasaporte(int id, String nacionalidad, int hojasDisponibles, Date vencimiento) {
-		throw new UnsupportedOperationException();
+		this.hojasDisponibles = hojasDisponibles;
 	}
 
 	public Date getVencimiento() {
@@ -44,4 +47,10 @@ public class Pasaporte {
 	public void setVencimiento(Date vencimiento) {
 		this.vencimiento = vencimiento;
 	}
+
+	public boolean validarPasaporte() {
+		Date fechaActual = new Date();
+		return (fechaActual.before(this.vencimiento) && (this.hojasDisponibles > 0));
+	}
+
 }

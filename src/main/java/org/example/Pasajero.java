@@ -5,12 +5,14 @@ public class Pasajero {
 	private String apellido;
 	public Pasaporte pasaporte;
 
-	public Pasaporte getPasaporte() {
-		return this.pasaporte;
+	public Pasajero(String nombre, String apellido, Pasaporte pasaporte) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.pasaporte = pasaporte;
 	}
 
-	public Pasajero(String nombre, String apellido, Pasaporte pasaporte) {
-		throw new UnsupportedOperationException();
+	public Pasaporte getPasaporte() {
+		return this.pasaporte;
 	}
 
 	public String getNombre() {

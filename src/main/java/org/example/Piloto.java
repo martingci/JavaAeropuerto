@@ -6,12 +6,14 @@ public class Piloto {
 	public Vuelo vuelo;
 	public Pasaporte pasaporte;
 
-	public Pasaporte getPasaporte() {
-		return this.pasaporte;
+	public Piloto(String nombre, String apellido, Pasaporte pasaporte) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.pasaporte = pasaporte;
 	}
 
-	public Piloto(String nombre, String apellido, Pasaporte pasaporte) {
-		throw new UnsupportedOperationException();
+	public Pasaporte getPasaporte() {
+		return this.pasaporte;
 	}
 
 	public String getNombre() {
